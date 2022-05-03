@@ -1,10 +1,12 @@
-import type { NextPage } from 'next';
-import { Button } from '../components/button/Button';
+import type {NextPage} from 'next';
+import {Button} from '../components/button/Button';
 import useThemeContext from '../hooks/useThemeContext';
-import { lightTheme } from '../stitches.config';
+import {lightTheme, styled} from '../stitches.config';
+
+const Panel = styled('div');
 
 const Home: NextPage = () => {
-    const { theme, toggleTheme } = useThemeContext();
+    const {theme, toggleTheme} = useThemeContext();
 
     function goTo(page: any) {
         window.location = page;
@@ -14,11 +16,12 @@ const Home: NextPage = () => {
         <div>
             <h1>Home</h1>
 
-            <Button color="secondary" onClick={() => goTo('/about')}>
-                About Page
-            </Button>
             <Button color="primary" onClick={() => toggleTheme()}>
                 {(theme === lightTheme) ? 'Light' : 'Dark'} Theme
+            </Button>
+
+            <Button onClick={() => goTo('/about')}>
+                About page
             </Button>
         </div>
     );

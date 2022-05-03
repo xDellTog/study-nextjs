@@ -1,4 +1,20 @@
-import { styled } from "../../stitches.config";
+import {styled} from "../../stitches.config";
+
+function generateVariantColors(colors: string[]) {
+    let variantColors: any = {};
+    colors.forEach((color: string) => {
+        variantColors[color] = {
+            backgroundColor: `$${color}`,
+            '&:hover': {
+                backgroundColor: `$${color}Tint`,
+            },
+            '&:focus': {
+                backgroundColor: `$${color}Shade`,
+            },
+        };
+    });
+    return variantColors;
+}
 
 export const Button = styled('button', {
     px: '$2',
@@ -18,25 +34,13 @@ export const Button = styled('button', {
     },
 
     variants: {
-        color: {
-            primary: {
-                backgroundColor: '$red10',
-                '&:hover': {
-                    backgroundColor: '$red9',
-                },
-                '&:focus': {
-                    backgroundColor: '$red11',
-                },
-            },
-            secondary: {
-                backgroundColor: '$blue10',
-                '&:hover': {
-                    backgroundColor: '$blue9',
-                },
-                '&:focus': {
-                    backgroundColor: '$blue11',
-                },
-            },
-        }
+        color: generateVariantColors([
+            'primary',
+            'secondary',
+            'success',
+            'danger',
+            'warning',
+            'info',
+        ]),
     }
 });
