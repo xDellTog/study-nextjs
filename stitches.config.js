@@ -24,12 +24,6 @@ const {styled, createTheme} = createStitches({
             paddingLeft: value,
             paddingRight: value,
         }),
-        m: (value) => ({
-            marginTop: value,
-            marginBottom: value,
-            marginLeft: value,
-            marginRight: value,
-        }),
         py: (value) => ({
             paddingTop: value,
             paddingBottom: value,
@@ -38,12 +32,43 @@ const {styled, createTheme} = createStitches({
             paddingLeft: value,
             paddingRight: value,
         }),
+        pt: (value) => ({
+            paddingTop: value,
+        }),
+        pb: (value) => ({
+            paddingBottom: value,
+        }),
+        pl: (value) => ({
+            paddingLeft: value,
+        }),
+        pr: (value) => ({
+            paddingRight: value,
+        }),
+
+        m: (value) => ({
+            marginTop: value,
+            marginBottom: value,
+            marginLeft: value,
+            marginRight: value,
+        }),
         my: (value) => ({
             marginTop: value,
             marginBottom: value,
         }),
         mx: (value) => ({
             marginLeft: value,
+            marginRight: value,
+        }),
+        mt: (value) => ({
+            marginTop: value,
+        }),
+        mb: (value) => ({
+            marginBottom: value,
+        }),
+        ml: (value) => ({
+            marginLeft: value,
+        }),
+        mr: (value) => ({
             marginRight: value,
         }),
     }

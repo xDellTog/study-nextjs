@@ -1,30 +1,25 @@
 import type {NextPage} from 'next';
-import {Button} from '../components/button/Button';
-import useThemeContext from '../hooks/useThemeContext';
-import {lightTheme, styled} from '../stitches.config';
+import Panel from "../components/primitives/panel/Panel";
+import {useEffect} from "react";
+import useNavigation from "../hooks/useNavigation";
 
-const Panel = styled('div');
+const Splash: NextPage = () => {
+    const {goTo} = useNavigation();
 
-const Home: NextPage = () => {
-    const {theme, toggleTheme} = useThemeContext();
-
-    function goTo(page: any) {
-        window.location = page;
-    }
+    useEffect(() => {
+        goTo('/home');
+    });
 
     return (
-        <div>
-            <h1>Home</h1>
-
-            <Button color="primary" onClick={() => toggleTheme()}>
-                {(theme === lightTheme) ? 'Light' : 'Dark'} Theme
-            </Button>
-
-            <Button onClick={() => goTo('/about')}>
-                About page
-            </Button>
-        </div>
+        <Panel css={{
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+        }}>
+            Loading...
+        </Panel>
     );
 };
 
-export default Home;
+export default Splash;

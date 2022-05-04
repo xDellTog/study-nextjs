@@ -1,4 +1,4 @@
-import {styled} from "../../stitches.config";
+import {styled} from "../../../stitches.config";
 
 function generateVariantColors(colors: string[]) {
     let variantColors: any = {};
@@ -16,7 +16,7 @@ function generateVariantColors(colors: string[]) {
     return variantColors;
 }
 
-export const Button = styled('button', {
+const Button = styled('button', {
     px: '$2',
     py: '$1',
     color: '$white',
@@ -33,6 +33,17 @@ export const Button = styled('button', {
         backgroundColor: '$gray11',
     },
 
+    '&[disabled]': {
+        cursor: 'default',
+        opacity: 0.3,
+        '&:hover': {
+            backgroundColor: '$gray10',
+        },
+        '&:focus': {
+            backgroundColor: '$gray10',
+        },
+    },
+
     variants: {
         color: generateVariantColors([
             'primary',
@@ -44,3 +55,5 @@ export const Button = styled('button', {
         ]),
     }
 });
+
+export default Button;
