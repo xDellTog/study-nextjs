@@ -1,14 +1,14 @@
-import type {NextPage} from 'next';
+import { useEffect } from "react";
+import { useRouter } from 'next/router';
+import type { NextPage } from 'next';
 import Panel from "../components/primitives/panel/Panel";
-import {useEffect} from "react";
-import useNavigation from "../hooks/useNavigation";
 
 const Splash: NextPage = () => {
-    const {goTo} = useNavigation();
+    const { push } = useRouter();
 
     useEffect(() => {
-        goTo('/home');
-    });
+        push('/home');
+    }, []);
 
     return (
         <Panel css={{
