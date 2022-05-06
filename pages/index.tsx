@@ -7,7 +7,7 @@ const Splash: NextPage = () => {
     const { push } = useRouter();
 
     useEffect(() => {
-        push('/home');
+        push('/login');
     }, []);
 
     return (
